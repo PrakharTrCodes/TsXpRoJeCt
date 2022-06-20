@@ -18,6 +18,7 @@ export default function LandingScreen() {
             </View>
         )
     }
+    
 
     return (
         <ScrollView style={{ backgroundColor: 'black', flex: 1 }} bounces={false}>
