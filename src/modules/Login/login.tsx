@@ -6,7 +6,6 @@ import CustomButton from '../../components/customButton/customButton';
 import CustomHeader from '../../components/customHeader/customHeader';
 import CustomInput from '../../components/customInput/CustomInput';
 import { normalize } from '../../utils/Dimensions';
-import LocalImages from '../../utils/LocalImages';
 
 
 const Login = () => {
@@ -16,7 +15,7 @@ const Login = () => {
         password: ''
     })
 
-    const navigation = useNavigation()
+    const navigation :any = useNavigation()
 
     const onBackPress = () => {
         navigation.goBack()
@@ -44,20 +43,19 @@ const Login = () => {
                 onChangeText={(text: string) => {
                     setUser({ ...user, email: text })
                 }}
-
             />
             <CustomInput
+                secureTextEntry = {true}
                 style={styles.Input}
                 placeholder="Password?"
-                value={user.email}
+                value={user.password}
                 placeholderTextColor="white"
                 onChangeText={(text: string) => {
-                    setUser({ ...user, email: text })
+                    setUser({ ...user, password: text })
                 }}
-
             />
-            <Text style={styles.forgot}>
-                {'Forgot Password'}
+            <Text onPress={()=>{navigation.navigate('ForgotPass')}} style={styles.forgot}>
+                {'Forgot Password ?'}
             </Text>
             <LinearGradient colors={['#E91E63', '#9C27B0']} style={styles.buttonStyle} start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 1 }}>
@@ -88,7 +86,8 @@ const styles = StyleSheet.create({
         left: normalize(16),
         color: 'white',
         position: 'absolute',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily:'Ubuntu-Medium'
     },
     signUPText: {
         top: normalize(140),
@@ -104,6 +103,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     Input: {
+        fontFamily:'Ubuntu-Medium',
         color: 'white',
         borderColor: 'rgba(18, 40, 87, 0.75)',
         borderWidth: normalize(2),
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         borderRadius: normalize(100)
     },
     forgot: {
+        fontFamily:'Ubuntu-Medium',
         color: 'white',
         marginTop: normalize(48),
         textAlign: 'right',

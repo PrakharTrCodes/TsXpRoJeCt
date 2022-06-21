@@ -156,7 +156,7 @@ const SignUP = () => {
             </View>
             <LinearGradient colors={['#E91E63', '#9C27B0']} style={styles.buttonStyle} start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 1 }}>
-            <CustomButton onPress={() => { }} buttonName='SignUp' buttonStyle={styles.buttonStyle} disabled={checked} />
+                <CustomButton onPress={() => { }} buttonName='SignUp' buttonStyle={styles.buttonStyle} disabled={checked} />
             </LinearGradient>
             <Text style={styles.orText}>
                 {"or"}
@@ -183,7 +183,8 @@ const styles = StyleSheet.create({
         left: normalize(16),
         color: 'white',
         position: 'absolute',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Ubuntu-Medium'
     },
     signUPText: {
         top: normalize(140),
@@ -202,6 +203,7 @@ const styles = StyleSheet.create({
         height: normalize(238),
     },
     nameInput: {
+        fontFamily: 'Ubuntu-Medium',
         color: 'white',
         borderColor: 'rgba(18, 40, 87, 0.75)',
         borderWidth: normalize(2),

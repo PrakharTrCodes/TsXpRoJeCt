@@ -6,13 +6,15 @@ interface inputType {
     placeholderTextColor : string,
     onChangeText : Function,
     value : string,
-    style : any
+    style : any,
+    secureTextEntry? : boolean
 }
 
 const CustomInput=(props : inputType)=> {
-    const {placeholder, placeholderTextColor, onChangeText, value, style } = props
+    const {placeholder, placeholderTextColor, onChangeText, value, style, secureTextEntry } = props
   return (
       <TextInput
+      secureTextEntry = {secureTextEntry}
       style = {style}
       placeholder = {placeholder}
       placeholderTextColor={placeholderTextColor}

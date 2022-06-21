@@ -26,6 +26,7 @@ export default function CustomButton(props : Button) {
 
 const styles = StyleSheet.create({
   buttonText : {
+    fontFamily:'Ubuntu-Bold',
     fontSize:normalize(16),
     color: "white",
   },

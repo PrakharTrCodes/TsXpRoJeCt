@@ -2,6 +2,16 @@ import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react
 import React from 'react'
 import LocalImages from '../../utils/LocalImages'
 
+interface props{
+    topView : any,
+    backText? : any
+    onBackPress? : Function
+    helloText? : any,
+    signUPText? : any,
+    welcomeText1? : string,
+    welcomeText2? : string
+}
+
 export default function CustomHeader(obj: any) {
 
     const {topView, backText, onBackPress, helloText, signUPText, welcomeText1, welcomeText2} = obj;

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import LandingScreen from '../../modules/LandingScreen/landingScreen';
 import Login from '../../modules/Login/login';
 import SignUP from '../../modules/signUp/SignUp';
+import ForgotPassword from '../../modules/forgotPassword/forgotPassword';
 
 
 export default function StackScreen() {
@@ -13,6 +14,7 @@ export default function StackScreen() {
         <Stack.Screen name = 'LandingScreen' component={LandingScreen} />
         <Stack.Screen name = 'Login' component={Login} />
         <Stack.Screen name = 'SignUp' component={SignUP} />
+        <Stack.Screen name = 'ForgotPass' component={ForgotPassword} />
     </Stack.Navigator>
   )
 }

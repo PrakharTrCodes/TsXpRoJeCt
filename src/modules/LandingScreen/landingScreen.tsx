@@ -8,17 +8,17 @@ import CustomButton from '../../components/customButton/customButton';
 
 export default function LandingScreen() {
     const navigation: any = useNavigation();
-    const imgArr = [LocalImages.backGround1, LocalImages.backGround2, LocalImages.backGround3];
+    const imgArr = [{ img: LocalImages.backGround1, title: 'Create your story' }, { img: LocalImages.backGround2, title: 'Share your story' }, { img: LocalImages.backGround3, title: "Follow your story" }];
     const [index, setIndex] = React.useState(0);
 
     const _renderItem = ({ index }: any) => {
         return (
             <View style={styles.imageView}>
-                <Image resizeMode='cover' style={styles.image} source={imgArr[index]} />
+                <Image resizeMode='cover' style={styles.image} source={imgArr[index].img} />
             </View>
         )
     }
-    
+
 
     return (
         <ScrollView style={{ backgroundColor: 'black', flex: 1 }} bounces={false}>
@@ -37,13 +37,12 @@ export default function LandingScreen() {
                     setIndex(index)
                 }}
             />
-            {/* <Image resizeMode='cover' style={{ height: normalize(492), width: '100%' }} source={LocalImages.backGround1} /> */}
             <Image source={LocalImages.logo} style={styles.logo} />
             <Text style={styles.upperText}>
                 {'KandiSnap'}
             </Text>
             <Text style={styles.lowerText}>
-                {'Share your story'}
+                {imgArr[index].title}
             </Text>
             <View style={styles.indicator}>
                 {imgArr.map((item, i) => {
@@ -58,14 +57,12 @@ export default function LandingScreen() {
                 <CustomButton onPress={() => { }} buttonName='Discover a Kandi' buttonStyle={styles.buttonStyle} disabled={false} />
             </LinearGradient>
             <View style={styles.buttonsView}>
-                <LinearGradient colors={['#E91E63', '#9C27B0']} style={styles.loginButton} start={{ x: 0, y: 1 }}
-                    end={{ x: 1, y: 1 }}>
+                <View style={styles.loginButton}>
                     <CustomButton onPress={() => { navigation.navigate('Login') }} buttonName='Login' buttonStyle={styles.loginButton} disabled={false} />
-                </LinearGradient>
-                <LinearGradient colors={['#E91E63', '#9C27B0']} style={styles.loginButton} start={{ x: 0, y: 1 }}
-                    end={{ x: 1, y: 1 }}>
+                </View>
+                <View style={styles.loginButton} >
                     <CustomButton onPress={() => { navigation.navigate("SignUp") }} buttonName='SignUp' buttonStyle={styles.signUpButton} disabled={false} />
-                </LinearGradient>
+                </View>
             </View>
         </ScrollView>
     )
@@ -81,11 +78,13 @@ const styles = StyleSheet.create({
         borderRadius: normalize(100),
     },
     loginButton: {
+        borderColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: normalize(100),
         width: normalize(156),
         height: normalize(54),
+        borderWidth: 1
     },
     signUpButton: {
         justifyContent: 'center',
@@ -103,13 +102,15 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: normalize(32),
         position: 'absolute',
-        top: normalize(457)
+        top: normalize(457),
+        fontFamily: "Ubuntu-Bold"
     },
     lowerText: {
         color: 'white',
         fontSize: normalize(16),
         position: 'absolute',
-        top: normalize(500)
+        top: normalize(500),
+        fontFamily: 'Ubuntu'
     },
     indicator: {
         flexDirection: 'row',
